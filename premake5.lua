@@ -1,6 +1,6 @@
--- example
+-- yaml-cpp
 
-project "example"
+project "yaml-cpp"
   kind "StaticLib"
   language "C++"
   cppdialect "C++17"
@@ -10,16 +10,19 @@ project "example"
   targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
   objdir ("%{wks.location}/build/" .. outputdir .. "%{prj.name}")
 
-  IncludeDir["example"] = "%{wks.location}/libs/example/include"
+  IncludeDir["yaml-cpp"] = "%{wks.location}/libs/yaml-cpp/yaml-cpp/include"
 
   includedirs {
-    "%{IncludeDir.example}"
+    "%{IncludeDir.yaml-cpp}",
+    "yaml-cpp/src/"
   }
 
   files {
     "premake5.lua",
-    "include/example.hpp",
-    "src/example.cpp",
+
+    "yaml-cpp/include/**.hpp",
+    "yaml-cpp/src/contrib/*.cpp",
+    "yaml-cpp/src/*.cpp",
   }
 
   filter "system:linux"
