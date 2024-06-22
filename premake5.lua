@@ -10,10 +10,10 @@ project "yaml-cpp"
   targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
   objdir ("%{wks.location}/build/" .. outputdir .. "%{prj.name}")
 
-  IncludeDir["yaml-cpp"] = "%{wks.location}/libs/yaml-cpp/yaml-cpp/include"
+  IncludeDir["yaml_cpp"] = "%{wks.location}/libs/yaml-cpp/yaml-cpp/include"
 
   includedirs {
-    "%{IncludeDir.yaml-cpp}",
+    "%{IncludeDir.yaml_cpp}",
     "yaml-cpp/src/"
   }
 
