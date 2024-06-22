@@ -11,16 +11,22 @@ project "yaml-cpp"
   objdir ("%{wks.location}/build/" .. outputdir .. "%{prj.name}")
 
   IncludeDir["yaml_cpp"] = "%{wks.location}/libs/yaml-cpp/yaml-cpp/include"
+  PublicDefines["yaml_cpp"] = "YAML_CPP_STATIC_DEFINE"
+
 
   includedirs {
     "%{IncludeDir.yaml_cpp}",
     "yaml-cpp/src/"
   }
 
+  defines {
+    "%{PublicDefines.yaml_cpp}"
+  }
+
   files {
     "premake5.lua",
 
-    "yaml-cpp/include/**.hpp",
+    "yaml-cpp/include/**.h",
     "yaml-cpp/src/contrib/*.cpp",
     "yaml-cpp/src/*.cpp",
   }
